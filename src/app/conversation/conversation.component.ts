@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService, ChatHistory } from '../chat.service';
 import { ChatCommunicationService } from '../chat-communication.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-conversation',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './conversation.component.html',
   styleUrl: './conversation.component.css'
 })
 export class ConversationComponent implements OnInit {
+  chatHistory: ChatHistory[] = []
   constructor(
     private chatService: ChatService,
     private chatCommunicationService: ChatCommunicationService
@@ -17,7 +20,7 @@ export class ConversationComponent implements OnInit {
   ngOnInit() {
     this.chatCommunicationService.chatAdded$.subscribe((chat: ChatHistory) => {
       console.log('New chat added:', chat);
-      console.log(this.chatService.getChatHistory());
+      this.chatHistory = this.chatService.getChatHistory();
     });
   }
 }
