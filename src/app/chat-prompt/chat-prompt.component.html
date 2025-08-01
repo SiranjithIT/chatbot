@@ -1,0 +1,6 @@
+<div class="container">
+   <textarea class="query" [(ngModel)]="user_query"
+   type="text" placeholder="What's in your mind today?"
+   (keydown.enter)="getResponse()"></textarea>
+  <button class="post" (click)="getResponse()">&#8594;</button>
+</div>
