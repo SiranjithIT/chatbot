@@ -31,6 +31,7 @@ export class ChatPromptComponent {
             };
             this.chatService.addChat(chat);
             this.chatCommunicationService.notifyTaskAdded(chat);
+            this.user_query = "";
           },
           error: (error) =>{
             console.log(error);

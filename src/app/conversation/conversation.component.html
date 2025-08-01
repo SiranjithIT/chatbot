@@ -10,7 +10,6 @@
   <div class="chat-container">
     <div class="chat-messages">
       <div class="chat-row" *ngFor="let chat of chatHistory">
-        <!-- User Message -->
         <div class="message-wrapper user-message">
           <div class="chat-user">{{ chat.user_query }}</div>
           <div class="user-avatar">
@@ -19,8 +18,6 @@
             </svg>
           </div>
         </div>
-
-        <!-- AI Response -->
         <div class="message-wrapper ai-message">
           <div class="ai-avatar">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -28,6 +25,9 @@
             </svg>
           </div>
           <div class="chat-response">{{ chat.response }}</div>
+           <!-- <div class="chat-response">
+            <markdown [data]="chat.response"></markdown>
+           </div> -->
         </div>
       </div>
     </div>
